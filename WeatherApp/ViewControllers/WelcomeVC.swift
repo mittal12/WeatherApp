@@ -10,6 +10,12 @@ import UIKit
 
 class WelcomeVC: UIViewController {
 
+    @IBOutlet weak var AddCity: UIBarButtonItem!
+    @IBOutlet weak var Refresh: UIBarButtonItem!
+    @IBOutlet weak var CityName: UILabel!
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

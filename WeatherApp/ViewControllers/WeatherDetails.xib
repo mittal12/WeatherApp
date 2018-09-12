@@ -13,6 +13,12 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WeatherDetails" customModule="WeatherApp" customModuleProvider="target">
             <connections>
+                <outlet property="CityName" destination="q46-NO-1bd" id="Mjz-Cs-rQg"/>
+                <outlet property="CurrentTemp" destination="By6-SW-kXx" id="nEh-wU-Kzp"/>
+                <outlet property="Humidity" destination="2Qy-5Z-CfN" id="tLT-8w-Zvf"/>
+                <outlet property="Pressure" destination="lqS-md-bSu" id="VTU-Rh-ggO"/>
+                <outlet property="WeatherIcon" destination="MxO-gc-Dvg" id="nj1-IF-f1j"/>
+                <outlet property="WindSpeed" destination="Eci-WO-P0l" id="Cw8-cY-ABt"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

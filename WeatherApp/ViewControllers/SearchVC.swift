@@ -10,6 +10,9 @@ import UIKit
 
 class SearchVC: UIViewController {
 
+    @IBOutlet weak var CitySearch: UISearchBar!
+    @IBOutlet weak var CitySearchTableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
