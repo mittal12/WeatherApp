@@ -44,15 +44,15 @@
                             </subviews>
                         </tableViewCellContentView>
                     </tableViewCell>
-                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="2kc-Zn-VBK">
-                        <rect key="frame" x="0.0" y="108" width="375" height="44"/>
+                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="74" id="2kc-Zn-VBK">
+                        <rect key="frame" x="0.0" y="108" width="375" height="74"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2kc-Zn-VBK" id="Lld-B3-IAo">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="73.5"/>
                             <autoresizingMask key="autoresizingMask"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="City Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MJE-V6-Azr">
-                                    <rect key="frame" x="132" y="11" width="113" height="21"/>
+                                    <rect key="frame" x="132" y="11" width="113" height="51"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>

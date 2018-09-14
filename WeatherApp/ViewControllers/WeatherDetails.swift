@@ -16,13 +16,17 @@ class WeatherDetails: UIViewController {
     @IBOutlet weak var Humidity: UILabel!
     @IBOutlet weak var WindSpeed: UILabel!
     @IBOutlet weak var Pressure: UILabel!
-    
+
+    @IBOutlet var ContentView: ForecastViewCell!
     
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+
+        
 
         // Do any additional setup after loading the view.
     }
