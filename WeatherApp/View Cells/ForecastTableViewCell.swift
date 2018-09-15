@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ForecastViewCell: UITableViewCell {
+class ForecastTableViewCell: UITableViewCell {
 
     @IBOutlet weak var WeatherIcon: UIImageView!
     @IBOutlet weak var Day: UILabel!

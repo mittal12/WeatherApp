@@ -17,16 +17,14 @@ class WeatherDetails: UIViewController {
     @IBOutlet weak var WindSpeed: UILabel!
     @IBOutlet weak var Pressure: UILabel!
 
-    @IBOutlet var ContentView: ForecastViewCell!
+    @IBOutlet var ContentView: ForecastTableViewCell!
     
-    
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-
-        
+        //registering your nib
+        _ = UINib(nibName: "ForecastViewCell", bundle: nil)
+    
 
         // Do any additional setup after loading the view.
     }

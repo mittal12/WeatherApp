@@ -8,7 +8,7 @@
 
 import UIKit
 
-class WelcomeVC: UIViewController {
+class WelcomeVC: UITableViewController {
 
     @IBOutlet weak var AddCity: UIBarButtonItem!
     @IBOutlet weak var Refresh: UIBarButtonItem!
