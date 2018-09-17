@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SearchVC" customModule="WeatherApp" customModuleProvider="target">
             <connections>
+                <outlet property="ActivityIndicator" destination="lup-eM-HQK" id="smL-6H-1Cb"/>
                 <outlet property="CitySearch" destination="E1g-ZK-DFe" id="Jja-zV-d1y"/>
                 <outlet property="CitySearchTableView" destination="IoY-eR-0IJ" id="9eX-dX-Ds9"/>
             </connections>
@@ -30,7 +31,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="375" height="94.5"/>
                             <autoresizingMask key="autoresizingMask"/>
                             <subviews>
-                                <searchBar contentMode="redraw" text="CityName" translatesAutoresizingMaskIntoConstraints="NO" id="E1g-ZK-DFe">
+                                <searchBar contentMode="redraw" placeholder="Enter City Name" translatesAutoresizingMaskIntoConstraints="NO" id="E1g-ZK-DFe">
                                     <rect key="frame" x="0.0" y="14" width="375" height="66.5"/>
                                     <textInputTraits key="textInputTraits"/>
                                 </searchBar>

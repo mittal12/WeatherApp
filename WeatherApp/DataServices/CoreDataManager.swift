@@ -7,3 +7,11 @@
 //
 
 import Foundation
+import CoreData
+import UIKit
+import CoreLocation
+
+class CoreDataManager {
+    
+    
+}

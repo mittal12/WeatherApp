@@ -45,6 +45,10 @@
                 <constraint firstItem="njF-e1-oar" firstAttribute="bottom" secondItem="mv9-8X-dms" secondAttribute="bottom" constant="8" id="Jgm-Ex-m0K"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="CityName" destination="KYq-YD-7nj" id="DNE-iO-9yz"/>
+                <outlet property="Delete" destination="mv9-8X-dms" id="Ole-2w-NJI"/>
+            </connections>
         </tableViewCell>
     </objects>
 </document>

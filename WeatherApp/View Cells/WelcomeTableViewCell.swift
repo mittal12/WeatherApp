@@ -10,6 +10,10 @@ import UIKit
 
 class WelcomeTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var CityName: UILabel!
+    @IBOutlet weak var Delete: UIButton!
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

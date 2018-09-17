@@ -12,14 +12,19 @@ class WelcomeVC: UITableViewController {
 
     @IBOutlet weak var AddCity: UIBarButtonItem!
     @IBOutlet weak var Refresh: UIBarButtonItem!
-    @IBOutlet weak var CityName: UILabel!
+    @IBOutlet weak var Edit: UIBarButtonItem!
     
-    
+    @IBOutlet weak var WelcomeTableViewCell: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        WelcomeTableViewCell.dataSource = self
+        WelcomeTableViewCell.delegate = self
+        
+        //Set reuse identifier for the WelcomeTableViewCell
+        let nib = UINib(nibName: "WelcomeTableViewCell", bundle: nil)
+        tableView.register(nib, forCellReuseIdentifier: "WelcomeTableViewCell")
+        
     }
 
     override func didReceiveMemoryWarning() {

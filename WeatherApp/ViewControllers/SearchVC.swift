@@ -7,11 +7,18 @@
 //
 
 import UIKit
+import MapKit
+import CoreData
 
 class SearchVC: UIViewController {
+    
+    var searchBar = MKLocalSearchCompleter()
+    var searchResults = [MKLocalSearchCompletion]() 
+    
 
     @IBOutlet weak var CitySearch: UISearchBar!
     @IBOutlet weak var CitySearchTableView: UITableView!
+    @IBOutlet weak var ActivityIndicator: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -13,6 +13,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WelcomeVC" customModule="WeatherApp" customModuleProvider="target">
             <connections>
                 <outlet property="AddCity" destination="V76-8r-mj6" id="4BU-AN-iC3"/>
+                <outlet property="Edit" destination="XB0-h2-2fT" id="bBS-7w-oqL"/>
                 <outlet property="Refresh" destination="Bdl-AL-N7o" id="mx7-kA-EAO"/>
             </connections>
         </placeholder>
