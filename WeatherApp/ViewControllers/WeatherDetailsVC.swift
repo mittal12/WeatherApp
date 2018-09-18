@@ -19,13 +19,11 @@ class WeatherDetailsVC: UIViewController {
     @IBOutlet weak var Summary: UILabel!
     
     //Forecast TableView from WeatherDetailsVC
-    @IBOutlet weak var ForecastTableViewCell: UITableView!
-    
+     
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        ForecastTableViewCell.dataSource = self
-        ForecastTableViewCell.delegate = self
+       
         
         //Set reuse identifier for the ForecastTablViewCell
         let nib = UINib(nidName: "ForecastTableViewCell", bundle: nil)

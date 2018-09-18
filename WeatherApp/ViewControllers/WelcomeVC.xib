@@ -52,6 +52,7 @@
                                 </navigationBar>
                             </subviews>
                         </tableViewCellContentView>
+                        <color key="backgroundColor" red="0.99953407049999998" green="0.98835557699999999" blue="0.47265523669999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tableViewCell>
                 </prototypes>
                 <connections>

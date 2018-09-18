@@ -7,10 +7,6 @@
 //
 
 import Foundation
+import CoreLocation
 
-struct currentWeather: Codable {
-    
-    
-    
-    
-}
+struct C
