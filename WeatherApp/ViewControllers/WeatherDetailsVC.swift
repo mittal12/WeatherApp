@@ -9,6 +9,9 @@
 import UIKit
 
 class WeatherDetailsVC: UIViewController {
+    
+    
+    
     //Set IB Outlets for WeatherDetailsVC
     @IBOutlet weak var WeatherIcon: UIImageView!    
     @IBOutlet weak var CurrentTemp: UILabel!
@@ -26,10 +29,11 @@ class WeatherDetailsVC: UIViewController {
        
         
         //Set reuse identifier for the ForecastTablViewCell
-        let nib = UINib(nidName: "ForecastTableViewCell", bundle: nil)
+        let nib = UINib(nibName: "ForecastTableViewCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "ForecastTableViewCell")
         
     }
+}
     extension ViewController: UITableViewDataSource, UITableViewDelegate {
         
         func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -40,11 +44,5 @@ class WeatherDetailsVC: UIViewController {
             let cell = tableView.dequeueReusableCell(withIdentifier: "Cell")!
             return cell
         }
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
 
-    }
 }
