@@ -7,3 +7,10 @@
 //
 
 import Foundation
+
+enum WeatherType: String {
+    case Clear = "Clear"
+    case Cloudy = "Cloudy"
+    case RainLight = "Light Rain"
+    
+}

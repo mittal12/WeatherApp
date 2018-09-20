@@ -11,15 +11,13 @@ import UIKit
 class WeatherDetailsVC: UIViewController {
     
     
-    
-    //Set IB Outlets for WeatherDetailsVC
-    @IBOutlet weak var WeatherIcon: UIImageView!    
-    @IBOutlet weak var CurrentTemp: UILabel!
+    @IBOutlet weak var WeatherIcon: UIImageView!
     @IBOutlet weak var CityName: UILabel!
+    @IBOutlet weak var Temperature: UILabel!
+    @IBOutlet weak var Summary: UILabel!    
     @IBOutlet weak var Humidity: UILabel!
-    @IBOutlet weak var WindSpeed: UILabel!
+    @IBOutlet weak var Wind: UILabel!
     @IBOutlet weak var Pressure: UILabel!
-    @IBOutlet weak var Summary: UILabel!
     
     //Forecast TableView from WeatherDetailsVC
      
