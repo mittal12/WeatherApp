@@ -8,21 +8,26 @@
 
 import UIKit
 
+protocol WelcomeTableCellDelegate :class{
+    func deleteButtonTapped(cell:WelcomeTableViewCell)
+}
+
 class WelcomeTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var CityName: UILabel!
-    @IBOutlet weak var Delete: UIButton!
+    @IBOutlet weak var cityName: UILabel!
+   
+    @IBOutlet weak var delete: UIButton!
     
+    var delegate:WelcomeTableCellDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    @IBAction func deleteButtonTapped(_ sender: Any) {
+        self.delegate?.deleteButtonTapped(cell: self)
     }
+    
     
 }

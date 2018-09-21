@@ -27,12 +27,12 @@ class WeatherDetailsVC: UIViewController {
        
         
         //Set reuse identifier for the ForecastTablViewCell
-        let nib = UINib(nibName: "ForecastTableViewCell", bundle: nil)
-        tableView.register(nib, forCellReuseIdentifier: "ForecastTableViewCell")
+//        let nib = UINib(nibName: "ForecastTableViewCell", bundle: nil)
+//        tableView.register(nib, forCellReuseIdentifier: "ForecastTableViewCell")
         
     }
 }
-    extension ViewController: UITableViewDataSource, UITableViewDelegate {
+    extension WeatherDetailsVC: UITableViewDataSource, UITableViewDelegate {
         
         func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
             return 10

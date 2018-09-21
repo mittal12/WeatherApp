@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		44F9DDE421547E0400057773 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F9DDE321547E0400057773 /* Strings.swift */; };
+		44F9DDE6215487A500057773 /* WelcomeScreenStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F9DDE5215487A500057773 /* WelcomeScreenStruct.swift */; };
 		DB2A3900214884A60094412E /* WeatherDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2A38FE214884A60094412E /* WeatherDetailsVC.swift */; };
 		DB2A3901214884A60094412E /* WeatherDetailsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB2A38FF214884A60094412E /* WeatherDetailsVC.xib */; };
 		DB2A3904214884BD0094412E /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2A3902214884BD0094412E /* SearchVC.swift */; };
-		DB2A3905214884BD0094412E /* SearchVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB2A3903214884BD0094412E /* SearchVC.xib */; };
 		DB2A390921488A770094412E /* WelcomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2A390721488A770094412E /* WelcomeVC.swift */; };
-		DB2A390A21488A770094412E /* WelcomeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB2A390821488A770094412E /* WelcomeVC.xib */; };
 		DB60765A2148828300999764 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6076592148828300999764 /* AppDelegate.swift */; };
 		DB60765F2148828300999764 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB60765D2148828300999764 /* Main.storyboard */; };
 		DB6076622148828300999764 /* WeatherApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DB6076602148828300999764 /* WeatherApp.xcdatamodeld */; };
@@ -31,12 +31,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		44F9DDE321547E0400057773 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
+		44F9DDE5215487A500057773 /* WelcomeScreenStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeScreenStruct.swift; sourceTree = "<group>"; };
 		DB2A38FE214884A60094412E /* WeatherDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDetailsVC.swift; sourceTree = "<group>"; };
 		DB2A38FF214884A60094412E /* WeatherDetailsVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeatherDetailsVC.xib; sourceTree = "<group>"; };
 		DB2A3902214884BD0094412E /* SearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
-		DB2A3903214884BD0094412E /* SearchVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchVC.xib; sourceTree = "<group>"; };
 		DB2A390721488A770094412E /* WelcomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeVC.swift; sourceTree = "<group>"; };
-		DB2A390821488A770094412E /* WelcomeVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WelcomeVC.xib; sourceTree = "<group>"; };
 		DB6076562148828300999764 /* WeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB6076592148828300999764 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DB60765E2148828300999764 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -67,21 +67,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		DB2A3906214884E00094412E /* Struct */ = {
+		44F9DDE221547DEF00057773 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				44F9DDE321547E0400057773 /* Strings.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		DB2A3906214884E00094412E /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				DBD8F2E62149DBA60087464F /* LocationStruct.swift */,
 				DBD8F307214EE4DD0087464F /* CurrentWeatherStruct.swift */,
 				DBD8F309214EE4EC0087464F /* ForecastWeatherStruct.swift */,
+				44F9DDE5215487A500057773 /* WelcomeScreenStruct.swift */,
 			);
-			path = Struct;
+			path = Models;
 			sourceTree = "<group>";
 		};
 		DB60764D2148828300999764 = {
 			isa = PBXGroup;
 			children = (
+				44F9DDE221547DEF00057773 /* Utilities */,
 				DB6076702148832400999764 /* DataServices */,
-				DB2A3906214884E00094412E /* Struct */,
+				DB2A3906214884E00094412E /* Models */,
 				DB60766E214882CF00999764 /* ViewControllers */,
 				DBD8F2E82149DCE10087464F /* View Cells */,
 				DB60766F214882E400999764 /* Storyboards */,
@@ -114,9 +124,7 @@
 				DB2A38FE214884A60094412E /* WeatherDetailsVC.swift */,
 				DB2A38FF214884A60094412E /* WeatherDetailsVC.xib */,
 				DB2A3902214884BD0094412E /* SearchVC.swift */,
-				DB2A3903214884BD0094412E /* SearchVC.xib */,
 				DB2A390721488A770094412E /* WelcomeVC.swift */,
-				DB2A390821488A770094412E /* WelcomeVC.xib */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -213,9 +221,7 @@
 				DBD8F2FC214C8A780087464F /* WelcomeTableViewCell.xib in Resources */,
 				DBD8F2F8214C376C0087464F /* ForecastTableViewCell.xib in Resources */,
 				DB6076672148828600999764 /* LaunchScreen.storyboard in Resources */,
-				DB2A390A21488A770094412E /* WelcomeVC.xib in Resources */,
 				DB6076642148828600999764 /* Assets.xcassets in Resources */,
-				DB2A3905214884BD0094412E /* SearchVC.xib in Resources */,
 				DB60765F2148828300999764 /* Main.storyboard in Resources */,
 				DB2A3901214884A60094412E /* WeatherDetailsVC.xib in Resources */,
 			);
@@ -229,11 +235,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				DBD8F2F7214C376C0087464F /* ForecastTableViewCell.swift in Sources */,
+				44F9DDE6215487A500057773 /* WelcomeScreenStruct.swift in Sources */,
 				DB2A3904214884BD0094412E /* SearchVC.swift in Sources */,
 				DBD8F300214C8C7C0087464F /* DarkSkyApiManager.swift in Sources */,
 				DB2A390921488A770094412E /* WelcomeVC.swift in Sources */,
 				DB2A3900214884A60094412E /* WeatherDetailsVC.swift in Sources */,
 				DBD8F2FB214C8A780087464F /* WelcomeTableViewCell.swift in Sources */,
+				44F9DDE421547E0400057773 /* Strings.swift in Sources */,
 				DB6076622148828300999764 /* WeatherApp.xcdatamodeld in Sources */,
 				DBD8F30A214EE4EC0087464F /* ForecastWeatherStruct.swift in Sources */,
 				DBD8F304214C8CBE0087464F /* NetworkConnection.swift in Sources */,
@@ -386,7 +394,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9LU9UUFX7L;
-				INFOPLIST_FILE = WeatherApp/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/SupportFiles/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -404,7 +412,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9LU9UUFX7L;
-				INFOPLIST_FILE = WeatherApp/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/SupportFiles/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

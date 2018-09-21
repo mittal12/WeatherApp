@@ -8,39 +8,80 @@
 
 import UIKit
 
-class WelcomeVC: UITableViewController {
+class WelcomeVC: UIViewController {
 
     @IBOutlet weak var AddCity: UIBarButtonItem!
     @IBOutlet weak var Refresh: UIBarButtonItem!
     @IBOutlet weak var Edit: UIBarButtonItem!
-    
-    @IBOutlet weak var WelcomeTableViewCell: UITableView!
+    @IBOutlet weak var tableView: UITableView!
+  
+    var model:[WelcomeScreenStruct]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        WelcomeTableViewCell.dataSource = self
-        WelcomeTableViewCell.delegate = self
+        tableView.dataSource = self
+        tableView.delegate = self
         
         //Set reuse identifier for the WelcomeTableViewCell
-        let nib = UINib(nibName: "WelcomeTableViewCell", bundle: nil)
-        tableView.register(nib, forCellReuseIdentifier: "WelcomeTableViewCell")
+        let nib = UINib(nibName: Strings.CellsNames.welcomeCell, bundle: nil)
+        tableView.register(nib, forCellReuseIdentifier: Strings.CellsNames.welcomeCell)
+        //hard Code the model.
+        
+        model = [WelcomeScreenStruct(cityName: "NEW YORK"), WelcomeScreenStruct(cityName: "DenMark"),WelcomeScreenStruct(cityName: "California"), WelcomeScreenStruct(cityName: "London")]
         
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    @IBAction func refreshTapped(_ sender: Any) {
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func addTapped(_ sender: Any) {
     }
-    */
+    
+    @IBAction func editTapped(_ sender: Any) {
+        
+    }
+}
 
+// only contain tableViewdelegate methods
+extension WelcomeVC:UITableViewDelegate{
+    func abc(){
+        
+    }
+}
+
+extension WelcomeVC:UITableViewDataSource{
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return model?.count ?? 0 // nil collescing
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell:WelcomeTableViewCell = tableView.dequeueReusableCell(withIdentifier: Strings.CellsNames.welcomeCell, for: indexPath) as! WelcomeTableViewCell
+        let cellModel:WelcomeScreenStruct? = model?[indexPath.row]
+        cell.cityName.text = cellModel?.cityName ?? ""
+        cell.delegate = self
+        return cell
+    }
+    
+}
+
+// only contains mathematical functions
+
+extension WelcomeVC:WelcomeTableCellDelegate{
+    
+    func deleteButtonTapped(cell: WelcomeTableViewCell) {
+        //the specific delete item will be removed from the tableView.
+//        6
+//        //procedure?
+////        i have to find the index of the row which i have to delete .
+//        i will delete the entity number 2 in the model
+//
+//        5
+//        
+//        i will refrsh the tableView.
+//
+
+    }
 }
