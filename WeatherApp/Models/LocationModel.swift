@@ -1,5 +1,5 @@
 //
-//  LocationStruct.swift
+//  LocationModel.swift
 //  WeatherApp
 //
 //  Created by Edward L Richardson on 9/12/18.

@@ -8,9 +8,17 @@
 
 import Foundation
 
-enum WeatherType: String {
-    case Clear = "Clear"
-    case Cloudy = "Cloudy"
-    case RainLight = "Light Rain"
+struct Weather {
+    let icon:String
+    let temperature:Double
+    let summary: String
+    let humidity:Double
+    let wind:Double
+    let pressure:Double
+    
+    enum SerializationError: Error {
+        case missing(String)
+        case invalid(String, Any)
+    }
     
 }
