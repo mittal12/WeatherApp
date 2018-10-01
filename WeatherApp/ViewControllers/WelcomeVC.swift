@@ -15,7 +15,7 @@ class WelcomeVC: UIViewController {
     @IBOutlet weak var Edit: UIBarButtonItem!
     @IBOutlet weak var tableView: UITableView!
   
-    var model:[WelcomeScreenStruct]?
+    //var model:[WelcomeScreenStruct]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +27,23 @@ class WelcomeVC: UIViewController {
         tableView.register(nib, forCellReuseIdentifier: Strings.CellsNames.welcomeCell)
         //hard Code the model.
         
-        model = [WelcomeScreenStruct(cityName: "NEW YORK"), WelcomeScreenStruct(cityName: "DenMark"),WelcomeScreenStruct(cityName: "California"), WelcomeScreenStruct(cityName: "London")]
+       // model = [WelcomeScreenStruct(cityName: "NEW YORK"), WelcomeScreenStruct(cityName: "DenMark"),WelcomeScreenStruct(cityName: "California"), WelcomeScreenStruct(cityName: "London")]
+       
+        NetworkingManager.ApiCall{model,error in
+           // perform the logic.
+            // here your call back is provided.
+        }
+        
+        NetworkingManager.ApiCall(completionHandler: {
+            (model,error) in
+        })
+        
+        
+        NetworkingManager.ApiCall(completionHandler: functionName)
+        
+    }
+    
+    func functionName(_ model:Weather,_ error:SerializationError?){
         
     }
     
@@ -53,14 +69,15 @@ extension WelcomeVC:UITableViewDataSource{
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return model?.count ?? 0 // nil collescing
+        return 5 // nil collescing
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell:WelcomeTableViewCell = tableView.dequeueReusableCell(withIdentifier: Strings.CellsNames.welcomeCell, for: indexPath) as! WelcomeTableViewCell
-        let cellModel:WelcomeScreenStruct? = model?[indexPath.row]
-        cell.cityName.text = cellModel?.cityName ?? ""
+       // let cellModel:WelcomeScreenStruct? = model?[indexPath.row]
+        cell.cityName.text = "NewYork"
         cell.delegate = self
         return cell
     }
