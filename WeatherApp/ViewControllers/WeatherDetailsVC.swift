@@ -19,6 +19,10 @@ class WeatherDetailsVC: UIViewController {
     @IBOutlet weak var Wind: UILabel!
     @IBOutlet weak var Pressure: UILabel!
     
+    @IBOutlet weak var tableView: UITableView!
+    var model:Weather?
+    
+    
     //Forecast TableView from WeatherDetailsVC
      
 
@@ -30,17 +34,29 @@ class WeatherDetailsVC: UIViewController {
 //        let nib = UINib(nibName: "ForecastTableViewCell", bundle: nil)
 //        tableView.register(nib, forCellReuseIdentifier: "ForecastTableViewCell")
         
+        
+        NetworkingManager.ApiCall(completionHandler: {
+                        (model,error) in
+                self.model = model
+                self.tableView.reloadData()
+                    })
+        
     }
 }
     extension WeatherDetailsVC: UITableViewDataSource, UITableViewDelegate {
         
         func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            return 10
+            return 10  // hard code value
+           // make it adjustable according to the api data.
+            model?.dailyModel?.count ?? 0
         }
         
         func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
             let cell = tableView.dequeueReusableCell(withIdentifier: "Cell")!
+            //take out the model from the array and set the value of the cell.
+            
             return cell
+            
         }
 
 }

@@ -30,17 +30,16 @@ class WelcomeVC: UIViewController {
        // model = [WelcomeScreenStruct(cityName: "NEW YORK"), WelcomeScreenStruct(cityName: "DenMark"),WelcomeScreenStruct(cityName: "California"), WelcomeScreenStruct(cityName: "London")]
        
         NetworkingManager.ApiCall{model,error in
-           // perform the logic.
-            // here your call back is provided.
+      
         }
         
-        NetworkingManager.ApiCall(completionHandler: {
-            (model,error) in
-        })
-        
-        
-        NetworkingManager.ApiCall(completionHandler: functionName)
-        
+//        NetworkingManager.ApiCall(completionHandler: {
+//            (model,error) in
+//        })
+//
+//
+//        NetworkingManager.ApiCall(completionHandler: functionName)
+//
     }
     
     func functionName(_ model:Weather,_ error:SerializationError?){
