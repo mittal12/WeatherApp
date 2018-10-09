@@ -29,9 +29,9 @@ class WelcomeVC: UIViewController {
         
        // model = [WelcomeScreenStruct(cityName: "NEW YORK"), WelcomeScreenStruct(cityName: "DenMark"),WelcomeScreenStruct(cityName: "California"), WelcomeScreenStruct(cityName: "London")]
        
-        NetworkingManager.ApiCall{model,error in
-      
-        }
+//        NetworkingManager.ApiCall{model,error in
+//
+//        }
         
 //        NetworkingManager.ApiCall(completionHandler: {
 //            (model,error) in
@@ -80,6 +80,17 @@ extension WelcomeVC:UITableViewDataSource{
         cell.delegate = self
         return cell
     }
+    
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // pushing whether detail vc.
+        
+        
+        
+        let vc = WeatherDetailsVC()
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
     
 }
 

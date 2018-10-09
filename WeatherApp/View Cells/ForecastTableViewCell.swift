@@ -20,6 +20,14 @@ class ForecastTableViewCell: UITableViewCell {
         // Initialization code
     }
 
+    
+    func setModel(high:Double,low:Double,imageName:String,day:String){
+        self.Day.text = day;
+        HighTemp.text = String(high)
+        LowTemp.text = String(low)
+        WeatherIcon.image = UIImage(named: imageName)
+    }
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
