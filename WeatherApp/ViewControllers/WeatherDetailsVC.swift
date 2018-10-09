@@ -10,7 +10,6 @@ import UIKit
 
 class WeatherDetailsVC: UIViewController {
     
-    
     @IBOutlet weak var WeatherIcon: UIImageView!
     @IBOutlet weak var CityName: UILabel!
     @IBOutlet weak var Temperature: UILabel!
@@ -20,7 +19,7 @@ class WeatherDetailsVC: UIViewController {
     @IBOutlet weak var Pressure: UILabel!
     
     @IBOutlet weak var tableView: UITableView!
-    var model:Weather?
+    var model:Weather? = Weather()
     
     
     //Forecast TableView from WeatherDetailsVC
@@ -43,20 +42,46 @@ class WeatherDetailsVC: UIViewController {
         
     }
 }
+
+
+
+
+
     extension WeatherDetailsVC: UITableViewDataSource, UITableViewDelegate {
         
         func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            return 10  // hard code value
+            return model?.dailyModel?.count ?? 0  // hard code value
            // make it adjustable according to the api data.
-            model?.dailyModel?.count ?? 0
+            
         }
         
         func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "Cell")!
+            let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as! ForecastTableViewCell
             //take out the model from the array and set the value of the cell.
+            
+           // how to take the element from the array.
+            
+            
+            let rowNumber = indexPath.row
+            
+            let modelArray = model?.dailyModel
+            
+            let modelForRow = modelArray![rowNumber]
+            cell.setModel(high: modelForRow.temperatureHigh!, low: modelForRow.temperatureLow!, imageName: modelForRow.icon!, day: modelForRow.day!)  // time is in double.
             
             return cell
             
         }
+        
+        
+        func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+            // take out the xib and set the header view
+            
+        
+        }
 
+        func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+            return 90
+        }
+        
 }

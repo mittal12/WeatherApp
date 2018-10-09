@@ -25,7 +25,7 @@ class Weather {
 }
 
 class DailyModel{
-    var time:Double?
+    var day:String?
     var temperatureLow:Double?
     var temperatureHigh:Double?
     var icon:String?
@@ -33,6 +33,12 @@ class DailyModel{
 
 class NetworkingManager{
 //trailing closure//
+    
+    func abc(){
+        print("hello")
+    }
+    
+    
 static func ApiCall(completionHandler: @escaping (_ model:Weather,_ error:SerializationError?) ->Void){  // making a closure/Fucntion as a paramter.
     
     //define the url.
@@ -131,7 +137,18 @@ static func ApiCall(completionHandler: @escaping (_ model:Weather,_ error:Serial
                     for item in dataArray{
                         let model:DailyModel = DailyModel()
                         if let time :Double = item["time"] as? Double{
-                            model.time = time
+                            //from this time just calculate the day.
+                            // convert this time into data
+                            
+                            
+                            let date = Date(timeIntervalSince1970: time)
+                            // get the day name.
+                            
+                            let dateFormatter = DateFormatter()
+                            dateFormatter.dateFormat  = "EEEE"//"EE" to get short style
+                            let dayInWeek = dateFormatter.string(from: date)
+                            model.day = dayInWeek
+                            
                         }
                         if let temperatureHigh = item["temperatureHigh"] as? Double{
                          model.temperatureHigh = temperatureHigh
@@ -156,7 +173,12 @@ static func ApiCall(completionHandler: @escaping (_ model:Weather,_ error:Serial
         
     }.resume()
     
-    
     }
 
+
 }
+
+
+
+
+
