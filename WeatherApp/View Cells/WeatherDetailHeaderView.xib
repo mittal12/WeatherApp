@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -20,17 +19,17 @@
                 <rect key="frame" x="0.0" y="0.0" width="477" height="448.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VFf-jh-ICf" userLabel="CurrentConditions">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VFf-jh-ICf" userLabel="CurrentConditions" customClass="WeatherDetailHeaderView" customModule="WeatherApp" customModuleProvider="target">
                         <rect key="frame" x="10" y="10" width="457" height="249"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PartlySunny" translatesAutoresizingMaskIntoConstraints="NO" id="gTz-fi-08N" userLabel="WeatherIcon">
-                                <rect key="frame" x="8" y="73" width="110" height="96"/>
+                                <rect key="frame" x="27" y="73" width="110" height="96"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="110" id="1eG-cU-Dsj"/>
+                                    <constraint firstAttribute="width" constant="110" id="QxO-se-Wql"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="City Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3QN-8G-aAG">
-                                <rect key="frame" x="19" y="24" width="125" height="30"/>
+                                <rect key="frame" x="166" y="28" width="125" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="MMO-Lp-Tcd"/>
                                     <constraint firstAttribute="width" constant="125" id="lMr-oO-3cb"/>
@@ -40,13 +39,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="82°" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1ra-Kx-yeu">
-                                <rect key="frame" x="237" y="88" width="87" height="66"/>
+                                <rect key="frame" x="324" y="88" width="87" height="66"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="55"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Partly Cloudy" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vSO-97-zC5">
-                                <rect key="frame" x="10" y="189" width="143" height="30"/>
+                                <rect key="frame" x="0.0" y="189" width="457" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -54,16 +53,16 @@
                         </subviews>
                         <color key="backgroundColor" red="0.83216959239999999" green="0.98548370600000001" blue="0.47333085539999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="gTz-fi-08N" firstAttribute="top" secondItem="3QN-8G-aAG" secondAttribute="bottom" constant="19" id="7iV-8X-3kp"/>
+                            <constraint firstItem="gTz-fi-08N" firstAttribute="leading" secondItem="VFf-jh-ICf" secondAttribute="leading" constant="27" id="6Nd-xt-7aB"/>
                             <constraint firstAttribute="height" constant="249" id="B5C-Si-6hv"/>
-                            <constraint firstItem="vSO-97-zC5" firstAttribute="leading" secondItem="VFf-jh-ICf" secondAttribute="leading" constant="10" id="Hea-gI-2pu"/>
-                            <constraint firstItem="vSO-97-zC5" firstAttribute="top" secondItem="gTz-fi-08N" secondAttribute="bottom" constant="20" id="QxX-gX-Pmt"/>
-                            <constraint firstItem="3QN-8G-aAG" firstAttribute="leading" secondItem="VFf-jh-ICf" secondAttribute="leading" constant="19" id="ZqX-8s-3AC"/>
-                            <constraint firstAttribute="bottom" secondItem="vSO-97-zC5" secondAttribute="bottom" constant="30" id="lTY-WX-smE"/>
-                            <constraint firstItem="1ra-Kx-yeu" firstAttribute="centerY" secondItem="gTz-fi-08N" secondAttribute="centerY" id="ued-y6-omD"/>
-                            <constraint firstItem="1ra-Kx-yeu" firstAttribute="leading" secondItem="gTz-fi-08N" secondAttribute="trailing" constant="119" id="w5J-oy-hyu"/>
-                            <constraint firstItem="3QN-8G-aAG" firstAttribute="top" secondItem="VFf-jh-ICf" secondAttribute="top" constant="24" id="y3t-qJ-AFO"/>
-                            <constraint firstItem="gTz-fi-08N" firstAttribute="leading" secondItem="VFf-jh-ICf" secondAttribute="leading" constant="8" id="zQC-53-0a2"/>
+                            <constraint firstItem="vSO-97-zC5" firstAttribute="top" secondItem="gTz-fi-08N" secondAttribute="bottom" constant="20" id="QrS-lh-ax9"/>
+                            <constraint firstItem="3QN-8G-aAG" firstAttribute="leading" secondItem="VFf-jh-ICf" secondAttribute="leading" constant="166" id="ZqX-8s-3AC"/>
+                            <constraint firstItem="vSO-97-zC5" firstAttribute="centerX" secondItem="3QN-8G-aAG" secondAttribute="centerX" id="aev-mE-EwW"/>
+                            <constraint firstAttribute="trailing" secondItem="1ra-Kx-yeu" secondAttribute="trailing" constant="46" id="bSA-G4-lDb"/>
+                            <constraint firstItem="vSO-97-zC5" firstAttribute="leading" secondItem="VFf-jh-ICf" secondAttribute="leading" id="dlh-CU-GxY"/>
+                            <constraint firstAttribute="bottom" secondItem="vSO-97-zC5" secondAttribute="bottom" constant="30" id="nGZ-hn-gfq"/>
+                            <constraint firstItem="gTz-fi-08N" firstAttribute="centerY" secondItem="1ra-Kx-yeu" secondAttribute="centerY" id="nLD-I5-zWB"/>
+                            <constraint firstItem="3QN-8G-aAG" firstAttribute="top" secondItem="VFf-jh-ICf" secondAttribute="top" constant="28" id="y3t-qJ-AFO"/>
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Oj-JU-lwk" userLabel="ExtraConditions">
@@ -96,15 +95,15 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Yw-Im-qbE" userLabel="Barometric">
                                 <rect key="frame" x="318.5" y="25" width="120.5" height="95"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pressure" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uAu-Av-s5O">
-                                        <rect key="frame" x="8" y="8" width="67.5" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="29.5" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xaU-3o-spH">
+                                        <rect key="frame" x="29.5" y="37" width="62" height="36"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="29.5" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xaU-3o-spH">
-                                        <rect key="frame" x="29.5" y="37" width="61.5" height="36"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pressure" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uAu-Av-s5O">
+                                        <rect key="frame" x="26" y="8" width="68" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -114,14 +113,14 @@
                                     <constraint firstItem="xaU-3o-spH" firstAttribute="centerX" secondItem="1Yw-Im-qbE" secondAttribute="centerX" id="59y-5w-l0G"/>
                                     <constraint firstItem="uAu-Av-s5O" firstAttribute="top" secondItem="1Yw-Im-qbE" secondAttribute="topMargin" id="HWP-3c-58c"/>
                                     <constraint firstItem="xaU-3o-spH" firstAttribute="top" secondItem="uAu-Av-s5O" secondAttribute="bottom" constant="8" symbolic="YES" id="L9c-h6-dyR"/>
-                                    <constraint firstItem="uAu-Av-s5O" firstAttribute="leading" secondItem="1Yw-Im-qbE" secondAttribute="leadingMargin" id="NCJ-Tp-aql"/>
+                                    <constraint firstItem="uAu-Av-s5O" firstAttribute="leading" secondItem="1Yw-Im-qbE" secondAttribute="leadingMargin" constant="18" id="NCJ-Tp-aql"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gF6-nM-u1O" userLabel="Humidity">
                                 <rect key="frame" x="10" y="25" width="120.5" height="95"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="60%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ypT-75-wsc">
-                                        <rect key="frame" x="29.5" y="32" width="61.5" height="36"/>
+                                        <rect key="frame" x="29.5" y="32" width="61" height="36"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -174,6 +173,12 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="cityName" destination="3QN-8G-aAG" id="3Ts-X0-ye5"/>
+                <outlet property="summary" destination="vSO-97-zC5" id="sg3-eq-LwT"/>
+                <outlet property="temperature" destination="1ra-Kx-yeu" id="9pi-eQ-bEM"/>
+                <outlet property="weatherIcon" destination="gTz-fi-08N" id="aya-SV-kck"/>
+            </connections>
             <point key="canvasLocation" x="141.5" y="264.5"/>
         </tableViewCell>
     </objects>
