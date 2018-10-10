@@ -20,9 +20,9 @@ class WeatherDetailHeaderView: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
+    func intialise(weatherIcon:UIImage,cityName:String,temperature:UILabel,summary:String) {
+        
     
-    func setModel(weatherIcon:UIImage,cityName:String,temperature:Int,summary:String) {
-        return 
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
