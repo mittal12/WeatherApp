@@ -14,15 +14,17 @@ class WeatherDetailHeaderView: UITableViewCell {
     @IBOutlet weak var cityName: UILabel!
     @IBOutlet weak var temperature: UILabel!
     @IBOutlet weak var summary: UILabel!
-    
+    @IBOutlet weak var humidity: UILabel!
+    @IBOutlet weak var pressure: UILabel!
+    @IBOutlet weak var wind: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
-    func intialise(weatherIcon:UIImage,cityName:String,temperature:UILabel,summary:String) {
+    func initialise(weatherIcon:UIImage,cityName:String,temperature:Double,summary:String,humidity:Double,pressure:Double,wind:Double) {
+    //define IBOutlets for the vars listed in line 25
         
-    
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
