@@ -29,6 +29,7 @@ class WeatherDetailsVC: UIViewController {
         super.viewDidLoad()
        
         
+        
         //Set reuse identifier for the ForecastTablViewCell
 //        let nib = UINib(nibName: "ForecastTableViewCell", bundle: nil)
 //        tableView.register(nib, forCellReuseIdentifier: "ForecastTableViewCell")
