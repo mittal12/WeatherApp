@@ -52,7 +52,7 @@ class WeatherDetailsVC: UIViewController {
         }
         
         func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as! ForecastTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "ForecastTableViewCell") as! ForecastTableViewCell
             //take out the model from the array and set the value of the cell.
             
            // how to take the element from the array.
@@ -70,9 +70,18 @@ class WeatherDetailsVC: UIViewController {
         }
         
         
+        
         func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-            // take out the xib and set the header view
             
+            let weatherHeader = tableView.dequeueReusableCell(withIdentifier: "WeatherDetailHeaderView") as!
+                WeatherDetailHeaderView
+                weatherHeader.initialise(weatherIcon: "1", cityName: "New York" , temperature: model?.temperature  ?? 82, summary: model?.summary  ?? "Partly Cloudy", humidity: model?.humidity  ?? 60, pressure: model?.pressure  ?? 29.5, wind: model?.wind  ?? 29.5)
+            return weatherHeader
+            
+            
+            
+            // take out the xib and set the header view
+          
         
         }
 
