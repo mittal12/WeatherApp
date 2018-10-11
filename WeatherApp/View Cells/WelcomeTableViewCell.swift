@@ -14,9 +14,11 @@ protocol WelcomeTableCellDelegate :class{
 
 class WelcomeTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var cityName: UILabel!
-   
+    @IBOutlet weak var cityName: UILabel!   
+    @IBOutlet weak var temperature: UILabel!
     @IBOutlet weak var delete: UIButton!
+    
+
     
     var delegate:WelcomeTableCellDelegate?
     
