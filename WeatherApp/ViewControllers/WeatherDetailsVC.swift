@@ -10,29 +10,14 @@ import UIKit
 
 class WeatherDetailsVC: UIViewController {
     
-    @IBOutlet weak var WeatherIcon: UIImageView!
-    @IBOutlet weak var CityName: UILabel!
-    @IBOutlet weak var Temperature: UILabel!
-    @IBOutlet weak var Summary: UILabel!    
-    @IBOutlet weak var Humidity: UILabel!
-    @IBOutlet weak var Wind: UILabel!
-    @IBOutlet weak var Pressure: UILabel!
-    
     @IBOutlet weak var tableView: UITableView!
     var model:Weather? = Weather()
     
-    
-    //Forecast TableView from WeatherDetailsVC
-     
-
     override func viewDidLoad() {
         super.viewDidLoad()
-       
-        
-        
-        //Set reuse identifier for the ForecastTablViewCell
-//        let nib = UINib(nibName: "ForecastTableViewCell", bundle: nil)
-//        tableView.register(nib, forCellReuseIdentifier: "ForecastTableViewCell")
+        //Set reuse identifier for the ForecastTableViewCell
+       let nib = UINib(nibName: "ForecastTableViewCell", bundle: nil)
+            tableView.register(nib, forCellReuseIdentifier: "ForecastTableViewCell")
         
         
         NetworkingManager.ApiCall(completionHandler: {
@@ -69,8 +54,6 @@ class WeatherDetailsVC: UIViewController {
             return cell
             
         }
-        
-        
         
         func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
             

@@ -10,7 +10,7 @@ import UIKit
 
 class WelcomeVC: UIViewController {
 
-    @IBOutlet weak var AddCity: UIBarButtonItem!
+    @IBOutlet weak var Add: UIBarButtonItem!
     @IBOutlet weak var Refresh: UIBarButtonItem!
     @IBOutlet weak var Edit: UIBarButtonItem!
     @IBOutlet weak var tableView: UITableView!
@@ -43,6 +43,10 @@ class WelcomeVC: UIViewController {
     }
     
     func functionName(_ model:Weather,_ error:SerializationError?){
+        
+    }
+    
+    func refresh() {
         
     }
     
@@ -84,17 +88,15 @@ extension WelcomeVC:UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // pushing whether detail vc.
-        
-        
-        
         let vc = WeatherDetailsVC()
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
     
 }
+    
 
-// only contains mathematical functions
+
 
 extension WelcomeVC:WelcomeTableCellDelegate{
     
