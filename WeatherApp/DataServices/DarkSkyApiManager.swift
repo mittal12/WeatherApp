@@ -14,8 +14,50 @@ enum SerializationError: Error {
     
 }
 
+enum ESummary:String{  //enum name
+    
+    case clearNight = "Clear-Night"
+    case ClearDay = "Clear-day"
+    case partlyCloudNight = "partly-cloudy-night"
+    case particloudDay = "partly-cloudy-day"
+    case rain = "Rain"
+    case snow = "Snow"
+    case sleet = "sleet"
+    case wind = "Wind"
+    case fog = "fog"
+    case cloudy = "Cloudy"
+    
+    init(summary:String){  // parameter name.
+        switch summary.lowercased() {
+        case "clear-night":
+            self = .clearNight
+        case "clear-day":
+            self = .ClearDay
+            
+        case "partly-cloudy-night":
+            self = .partlyCloudNight
+        case "partly-cloudy-day":
+            self  = .particloudDay
+        case "rain":
+            self = .rain
+        case "snow":
+            self = .snow
+        case "sleet":
+            self = .sleet
+        case "wind":
+            self = .wind
+        case "fog":
+            self = .fog
+        case "cloudy":
+            self = .cloudy
+        default:
+            self = .ClearDay
+        }
+    }
+}
+
 class Weather {
-    var icon:String?
+    var icon:ESummary?
     var temperature:Double?
     var summary: String?
     var humidity:Double?
@@ -28,7 +70,7 @@ class DailyModel{
     var day:String?
     var temperatureLow:Double?
     var temperatureHigh:Double?
-    var icon:String?
+    var icon:ESummary?
 }
 
 class NetworkingManager{
@@ -98,7 +140,7 @@ static func ApiCall(completionHandler: @escaping (_ model:Weather,_ error:Serial
             if let current = dict["currently"] as? [String:Any]{
                 
                 if let icon:String = current["icon"] as? String{
-                    finalObj.icon = icon
+                    finalObj.icon = ESummary(summary:icon)
                 }
                 if let temperature:Double = current["temperature"] as? Double{
                     finalObj.temperature = temperature
@@ -157,8 +199,8 @@ static func ApiCall(completionHandler: @escaping (_ model:Weather,_ error:Serial
                         if let temperatureLow :Double = item["temperatureLow"] as? Double{
                             model.temperatureLow = temperatureLow
                         }
-                        if let icon = item["String"] as? String{
-                            model.icon = icon
+                        if let icon = item["icon"] as? String{
+                            model.icon = ESummary(summary: icon)
                         }
                        arrayModel.append(model)
                         

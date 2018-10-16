@@ -25,10 +25,9 @@ class WeatherDetailsVC: UIViewController {
         
         let nib1 = UINib(nibName: "WeatherDetailHeaderView", bundle: nil)
         tableView.register(nib1, forCellReuseIdentifier: "WeatherDetailHeaderView")
-        
-        
-        tableView.delegate = self
-        tableView.dataSource = self
+       
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
 
         NetworkingManager.ApiCall(completionHandler: {
                         (model,error) in
@@ -36,6 +35,7 @@ class WeatherDetailsVC: UIViewController {
             DispatchQueue.main.async {
                 self.model = model
                 self.tableView.reloadData()
+                
             }
             
                     })
@@ -63,7 +63,7 @@ class WeatherDetailsVC: UIViewController {
             let modelArray = model?.dailyModel
             
             let modelForRow = modelArray![rowNumber]
-            cell.setModel(high: modelForRow.temperatureHigh!, low: modelForRow.temperatureLow!, imageName: "", day: modelForRow.day!)  // time is in double.
+            cell.setModel(high: modelForRow.temperatureHigh!, low: modelForRow.temperatureLow!, imageName: modelForRow.icon!, day: modelForRow.day!)  // time is in double.
             return cell
         }
         
@@ -71,7 +71,7 @@ class WeatherDetailsVC: UIViewController {
 
             let weatherHeader = tableView.dequeueReusableCell(withIdentifier: "WeatherDetailHeaderView") as!
                 WeatherDetailHeaderView
-                weatherHeader.initialise(weatherIcon: "1", cityName: "New York" , temperature: model?.temperature  ?? 82, summary: model?.summary  ?? "Partly Cloudy", humidity: model?.humidity  ?? 60, pressure: model?.pressure  ?? 29.5, wind: model?.wind  ?? 29.5)
+            weatherHeader.initialise(weatherIcon: (model?.icon) ?? .ClearDay , cityName: "New York" , temperature: model?.temperature  ?? 82, summary: model?.summary  ?? "Partly Cloudy", humidity: model?.humidity  ?? 60, pressure: model?.pressure  ?? 29.5, wind: model?.wind  ?? 29.5)
             return weatherHeader
             // take out the xib and set the header view
             

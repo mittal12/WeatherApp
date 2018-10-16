@@ -22,15 +22,15 @@ class WeatherDetailHeaderView: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-    func initialise(weatherIcon:String,cityName:String,temperature:Double,summary:String,humidity:Double,pressure:Double,wind:Double) {
+    func initialise(weatherIcon:ESummary,cityName:String,temperature:Double,summary:String,humidity:Double,pressure:Double,wind:Double) {
     //define IBOutlets for the vars listed in line 25
-//        self.weatherIcon.image = UIImage(named: "Cloudy")
-//        self.cityName.text = cityName
-//        self.temperature.text = String(temperature)
-//        self.summary.text = summary
-//        self.humidity.text = String(humidity)
-//        self.pressure.text = String(pressure)
-//        self.wind.text = String(wind)
+        self.weatherIcon.image = UIImage(named: weatherIcon.rawValue)
+        self.cityName.text = cityName
+        self.temperature.text = String(temperature)
+        self.summary.text = summary
+        self.humidity.text = String(humidity)
+        self.pressure.text = String(pressure)
+        self.wind.text = String(wind)
         
         
     }
