@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -56,7 +57,7 @@
                             <constraint firstItem="gTz-fi-08N" firstAttribute="leading" secondItem="VFf-jh-ICf" secondAttribute="leading" constant="27" id="6Nd-xt-7aB"/>
                             <constraint firstAttribute="height" constant="249" id="B5C-Si-6hv"/>
                             <constraint firstItem="vSO-97-zC5" firstAttribute="top" secondItem="gTz-fi-08N" secondAttribute="bottom" constant="20" id="QrS-lh-ax9"/>
-                            <constraint firstItem="3QN-8G-aAG" firstAttribute="leading" secondItem="VFf-jh-ICf" secondAttribute="leading" constant="166" id="ZqX-8s-3AC"/>
+                            <constraint firstItem="3QN-8G-aAG" firstAttribute="centerX" secondItem="VFf-jh-ICf" secondAttribute="centerX" id="RQa-KM-sks"/>
                             <constraint firstItem="vSO-97-zC5" firstAttribute="centerX" secondItem="3QN-8G-aAG" secondAttribute="centerX" id="aev-mE-EwW"/>
                             <constraint firstAttribute="trailing" secondItem="1ra-Kx-yeu" secondAttribute="trailing" constant="46" id="bSA-G4-lDb"/>
                             <constraint firstItem="vSO-97-zC5" firstAttribute="leading" secondItem="VFf-jh-ICf" secondAttribute="leading" id="dlh-CU-GxY"/>
@@ -174,13 +175,13 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="cityName" destination="3QN-8G-aAG" id="3Ts-X0-ye5"/>
-                <outlet property="humidity" destination="ypT-75-wsc" id="Hq8-Tk-mFO"/>
-                <outlet property="pressure" destination="xaU-3o-spH" id="Uoj-8u-ClO"/>
-                <outlet property="summary" destination="vSO-97-zC5" id="sg3-eq-LwT"/>
-                <outlet property="temperature" destination="1ra-Kx-yeu" id="9pi-eQ-bEM"/>
-                <outlet property="weatherIcon" destination="gTz-fi-08N" id="aya-SV-kck"/>
-                <outlet property="wind" destination="iwi-dT-HZ3" id="UL0-9r-aoB"/>
+                <outlet property="cityName" destination="3QN-8G-aAG" id="MtU-e9-rmF"/>
+                <outlet property="humidity" destination="ypT-75-wsc" id="0vu-qj-WMw"/>
+                <outlet property="pressure" destination="xaU-3o-spH" id="GuI-wu-1jL"/>
+                <outlet property="summary" destination="vSO-97-zC5" id="bBG-C9-3k4"/>
+                <outlet property="temperature" destination="1ra-Kx-yeu" id="A26-tP-viV"/>
+                <outlet property="weatherIcon" destination="gTz-fi-08N" id="K8W-P0-nYm"/>
+                <outlet property="wind" destination="iwi-dT-HZ3" id="Zar-JJ-3hb"/>
             </connections>
             <point key="canvasLocation" x="141.5" y="264.5"/>
         </tableViewCell>

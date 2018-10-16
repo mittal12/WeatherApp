@@ -10,7 +10,11 @@ import UIKit
 
 class WeatherDetailsVC: UIViewController {
     
+    
     @IBOutlet weak var tableView: UITableView!
+    
+    
+    
     var model:Weather? = Weather()
     
     override func viewDidLoad() {
@@ -19,11 +23,21 @@ class WeatherDetailsVC: UIViewController {
        let nib = UINib(nibName: "ForecastTableViewCell", bundle: nil)
             tableView.register(nib, forCellReuseIdentifier: "ForecastTableViewCell")
         
+        let nib1 = UINib(nibName: "WeatherDetailHeaderView", bundle: nil)
+        tableView.register(nib1, forCellReuseIdentifier: "WeatherDetailHeaderView")
         
+        
+        tableView.delegate = self
+        tableView.dataSource = self
+
         NetworkingManager.ApiCall(completionHandler: {
                         (model,error) in
+            
+            DispatchQueue.main.async {
                 self.model = model
                 self.tableView.reloadData()
+            }
+            
                     })
         
     }
@@ -49,28 +63,22 @@ class WeatherDetailsVC: UIViewController {
             let modelArray = model?.dailyModel
             
             let modelForRow = modelArray![rowNumber]
-            cell.setModel(high: modelForRow.temperatureHigh!, low: modelForRow.temperatureLow!, imageName: modelForRow.icon!, day: modelForRow.day!)  // time is in double.
-            
+            cell.setModel(high: modelForRow.temperatureHigh!, low: modelForRow.temperatureLow!, imageName: "", day: modelForRow.day!)  // time is in double.
             return cell
-            
         }
         
         func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-            
+
             let weatherHeader = tableView.dequeueReusableCell(withIdentifier: "WeatherDetailHeaderView") as!
                 WeatherDetailHeaderView
                 weatherHeader.initialise(weatherIcon: "1", cityName: "New York" , temperature: model?.temperature  ?? 82, summary: model?.summary  ?? "Partly Cloudy", humidity: model?.humidity  ?? 60, pressure: model?.pressure  ?? 29.5, wind: model?.wind  ?? 29.5)
             return weatherHeader
-            
-            
-            
             // take out the xib and set the header view
-          
-        
+            
         }
 
         func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-            return 90
+            return 449
         }
         
 }
