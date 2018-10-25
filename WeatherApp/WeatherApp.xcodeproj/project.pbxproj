@@ -10,6 +10,8 @@
 		4414F6B7216C434900759D4B /* WeatherDetailHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4414F6B5216C434900759D4B /* WeatherDetailHeaderView.swift */; };
 		4414F6B8216C434900759D4B /* WeatherDetailHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4414F6B6216C434900759D4B /* WeatherDetailHeaderView.xib */; };
 		44F9DDE421547E0400057773 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F9DDE321547E0400057773 /* Strings.swift */; };
+		C2276168218147AD00FF69E7 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2276166218147AD00FF69E7 /* SearchTableViewCell.swift */; };
+		C2276169218147AD00FF69E7 /* SearchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2276167218147AD00FF69E7 /* SearchTableViewCell.xib */; };
 		C2A3305A217EAE1C00DEB88F /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A33059217EAE1C00DEB88F /* CoreDataStack.swift */; };
 		C2DF5F34217B580800D7E404 /* City+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DF5F32217B580800D7E404 /* City+CoreDataClass.swift */; };
 		C2DF5F35217B580800D7E404 /* City+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DF5F33217B580800D7E404 /* City+CoreDataProperties.swift */; };
@@ -36,6 +38,8 @@
 		4414F6B5216C434900759D4B /* WeatherDetailHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDetailHeaderView.swift; sourceTree = "<group>"; };
 		4414F6B6216C434900759D4B /* WeatherDetailHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeatherDetailHeaderView.xib; sourceTree = "<group>"; };
 		44F9DDE321547E0400057773 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
+		C2276166218147AD00FF69E7 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
+		C2276167218147AD00FF69E7 /* SearchTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchTableViewCell.xib; sourceTree = "<group>"; };
 		C2A33059217EAE1C00DEB88F /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		C2DF5F32217B580800D7E404 /* City+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "City+CoreDataClass.swift"; sourceTree = "<group>"; };
 		C2DF5F33217B580800D7E404 /* City+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "City+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -170,6 +174,8 @@
 				DBD8F2FA214C8A780087464F /* WelcomeTableViewCell.xib */,
 				4414F6B5216C434900759D4B /* WeatherDetailHeaderView.swift */,
 				4414F6B6216C434900759D4B /* WeatherDetailHeaderView.xib */,
+				C2276166218147AD00FF69E7 /* SearchTableViewCell.swift */,
+				C2276167218147AD00FF69E7 /* SearchTableViewCell.xib */,
 			);
 			path = "View Cells";
 			sourceTree = "<group>";
@@ -233,6 +239,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DBD8F2FC214C8A780087464F /* WelcomeTableViewCell.xib in Resources */,
+				C2276169218147AD00FF69E7 /* SearchTableViewCell.xib in Resources */,
 				DBD8F2F8214C376C0087464F /* ForecastTableViewCell.xib in Resources */,
 				DB6076672148828600999764 /* LaunchScreen.storyboard in Resources */,
 				4414F6B8216C434900759D4B /* WeatherDetailHeaderView.xib in Resources */,
@@ -260,6 +267,7 @@
 				44F9DDE421547E0400057773 /* Strings.swift in Sources */,
 				DB6076622148828300999764 /* WeatherApp.xcdatamodeld in Sources */,
 				DBD8F304214C8CBE0087464F /* NetworkConnection.swift in Sources */,
+				C2276168218147AD00FF69E7 /* SearchTableViewCell.swift in Sources */,
 				C2DF5F35217B580800D7E404 /* City+CoreDataProperties.swift in Sources */,
 				DBD8F2FE214C8C5B0087464F /* CoreDataManager.swift in Sources */,
 				DB60765A2148828300999764 /* AppDelegate.swift in Sources */,

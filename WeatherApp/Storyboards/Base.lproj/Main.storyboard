@@ -101,6 +101,7 @@
                     <navigationItem key="navigationItem" id="hjD-M6-Zms"/>
                     <connections>
                         <outlet property="searchBar" destination="FKK-Ho-jUg" id="EvE-0a-ngI"/>
+                        <outlet property="tableView" destination="cyQ-8O-0qm" id="Ww9-ac-VTd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1mk-TK-vto" userLabel="First Responder" sceneMemberID="firstResponder"/>
