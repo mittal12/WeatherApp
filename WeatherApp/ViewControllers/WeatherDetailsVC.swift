@@ -9,11 +9,7 @@
 import UIKit
 
 class WeatherDetailsVC: UIViewController {
-    
-    
     @IBOutlet weak var tableView: UITableView!
-    
-    
     
     var model:Weather? = Weather()
     
@@ -37,7 +33,6 @@ class WeatherDetailsVC: UIViewController {
                 self.tableView.reloadData()
                 
             }
-            
                     })
         
     }
