@@ -1,18 +1,16 @@
 //
-//  SearchVC.swift
+//  SearchCitiesVC.swift
 //  WeatherApp
 //
-//  Created by Edward L Richardson on 9/11/18.
+//  Created by Ashish Mittal on 25/10/18.
 //  Copyright © 2018 Edward L Richardson. All rights reserved.
 //
 
 import UIKit
-import CoreLocation
 
-class SearchVC: UIViewController {
-    
+class SearchCitiesVC: UIViewController {
     @IBOutlet weak var searchBar: UISearchBar!
-  
+    
     @IBOutlet weak var tableView: UITableView!
     
     let modelArray:[String] = ["New York","California","Boston","Washington","dallas","utah","texas","San Fransisco","Las Vegas","Denver"]
@@ -23,13 +21,14 @@ class SearchVC: UIViewController {
         // same as delegation pattern
         tableView.delegate = self
         tableView.dataSource = self
+        searchBar.delegate = self
         
         // Do any additional setup after loading the view.
     }
-
+    
 }
 
-extension SearchVC:UITableViewDelegate, UITableViewDataSource{
+extension SearchCitiesVC:UITableViewDelegate, UITableViewDataSource{
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -58,6 +57,24 @@ extension SearchVC:UITableViewDelegate, UITableViewDataSource{
 }
 
 
-extension SearchVC:UISearchBarDelegate{
+extension SearchCitiesVC:UISearchBarDelegate{
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        print("End")
+    }
     
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        print("begin editing ")
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        print("search button clicked")
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        print("cancel button clicked")
+    }
 }
+
+
+
+

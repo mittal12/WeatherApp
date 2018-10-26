@@ -88,7 +88,7 @@ extension WelcomeVC:UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // pushing whether detail vc.
-        let vc = WeatherDetailsVC()
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "SearchCitiesVC") as! SearchCitiesVC
         self.navigationController?.pushViewController(vc, animated: true)
     }
     

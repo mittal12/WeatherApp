@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="GsA-LC-kc7">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="GsA-LC-kc7">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -49,7 +49,6 @@
                             <barButtonItem systemItem="add" id="H2c-lE-yG0">
                                 <connections>
                                     <action selector="addTapped:" destination="BYZ-38-t0r" id="HKG-JU-voU"/>
-                                    <segue destination="XZ3-Ps-VWE" kind="push" id="kcB-vr-dGe"/>
                                 </connections>
                             </barButtonItem>
                         </rightBarButtonItems>
@@ -63,50 +62,46 @@
             </objects>
             <point key="canvasLocation" x="-52" y="-33"/>
         </scene>
-        <!--SearchVC-->
-        <scene sceneID="rKK-2d-23d">
+        <!--Search CitiesVC-->
+        <scene sceneID="cpJ-I0-ak2">
             <objects>
-                <viewController id="XZ3-Ps-VWE" userLabel="SearchVC" customClass="SearchVC" customModule="WeatherApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="c0q-D2-8WM">
+                <viewController storyboardIdentifier="SearchCitiesVC" id="DnJ-3q-Zgb" customClass="SearchCitiesVC" customModule="WeatherApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bXE-8C-rJb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" text="" placeholder="City Name" showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FKK-Ho-jUg">
-                                <rect key="frame" x="0.0" y="64" width="375" height="56"/>
-                                <color key="barTintColor" red="0.83216959239999999" green="0.98548370600000001" blue="0.47333085539999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <searchBar contentMode="redraw" showsSearchResultsButton="YES" showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xEU-jr-OoQ">
+                                <rect key="frame" x="0.0" y="20" width="375" height="56"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="iVP-2C-OMQ"/>
+                                </constraints>
                                 <textInputTraits key="textInputTraits"/>
-                                <scopeButtonTitles>
-                                    <string>Title</string>
-                                    <string>Title</string>
-                                </scopeButtonTitles>
                             </searchBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cyQ-8O-0qm">
-                                <rect key="frame" x="0.0" y="120" width="375" height="503"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="lLP-yv-SBl">
+                                <rect key="frame" x="0.0" y="76" width="375" height="591"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="FKK-Ho-jUg" firstAttribute="trailing" secondItem="mqh-1f-ay7" secondAttribute="trailing" id="6yt-gI-8rU"/>
-                            <constraint firstItem="cyQ-8O-0qm" firstAttribute="bottom" secondItem="mqh-1f-ay7" secondAttribute="bottom" id="AvY-ZX-ycQ"/>
-                            <constraint firstItem="FKK-Ho-jUg" firstAttribute="top" secondItem="mqh-1f-ay7" secondAttribute="top" id="Vn4-jV-Qwp"/>
-                            <constraint firstItem="cyQ-8O-0qm" firstAttribute="top" secondItem="FKK-Ho-jUg" secondAttribute="bottom" id="aFe-CX-w8F"/>
-                            <constraint firstItem="FKK-Ho-jUg" firstAttribute="top" secondItem="mqh-1f-ay7" secondAttribute="top" id="cfq-05-eHp"/>
-                            <constraint firstItem="cyQ-8O-0qm" firstAttribute="leading" secondItem="FKK-Ho-jUg" secondAttribute="leading" id="lTN-Md-h4K"/>
-                            <constraint firstItem="cyQ-8O-0qm" firstAttribute="trailing" secondItem="FKK-Ho-jUg" secondAttribute="trailing" id="qGw-6U-jti"/>
-                            <constraint firstItem="FKK-Ho-jUg" firstAttribute="leading" secondItem="mqh-1f-ay7" secondAttribute="leading" id="voJ-jS-cyD"/>
+                            <constraint firstItem="xEU-jr-OoQ" firstAttribute="top" secondItem="zca-m0-L50" secondAttribute="top" id="4JO-F6-3B1"/>
+                            <constraint firstItem="xEU-jr-OoQ" firstAttribute="trailing" secondItem="zca-m0-L50" secondAttribute="trailing" id="5pt-PC-UOP"/>
+                            <constraint firstItem="zca-m0-L50" firstAttribute="trailing" secondItem="lLP-yv-SBl" secondAttribute="trailing" id="H5t-Z6-m4f"/>
+                            <constraint firstItem="zca-m0-L50" firstAttribute="bottom" secondItem="lLP-yv-SBl" secondAttribute="bottom" id="IrF-nD-mAh"/>
+                            <constraint firstItem="lLP-yv-SBl" firstAttribute="leading" secondItem="zca-m0-L50" secondAttribute="leading" id="Qlj-7l-gJ6"/>
+                            <constraint firstItem="xEU-jr-OoQ" firstAttribute="leading" secondItem="zca-m0-L50" secondAttribute="leading" id="fKz-vQ-fbg"/>
+                            <constraint firstItem="lLP-yv-SBl" firstAttribute="top" secondItem="xEU-jr-OoQ" secondAttribute="bottom" id="vdO-5I-nu6"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="mqh-1f-ay7"/>
+                        <viewLayoutGuide key="safeArea" id="zca-m0-L50"/>
                     </view>
-                    <navigationItem key="navigationItem" id="hjD-M6-Zms"/>
                     <connections>
-                        <outlet property="searchBar" destination="FKK-Ho-jUg" id="EvE-0a-ngI"/>
-                        <outlet property="tableView" destination="cyQ-8O-0qm" id="Ww9-ac-VTd"/>
+                        <outlet property="searchBar" destination="xEU-jr-OoQ" id="ijI-RF-18p"/>
+                        <outlet property="tableView" destination="lLP-yv-SBl" id="Yti-Mw-2ZN"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="1mk-TK-vto" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JQp-Sd-znr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="797.60000000000002" y="-34.632683658170919"/>
+            <point key="canvasLocation" x="791" y="-98"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="fqZ-L0-skR">
