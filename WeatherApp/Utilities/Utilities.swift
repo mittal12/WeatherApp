@@ -23,7 +23,7 @@ class Utilites{
      Las Vegas.  36.1699.  115.1398
      Denver.     39.7392.   104.9903
      */
-    static func setLatANdLongitude(){
+    static func setLatAndLongitude(){
      
         dict["New York"] = (Double(37.8267) ,Double(122.4233))
         dict["California"] = (Double(36.7783) , Double(119.4179))

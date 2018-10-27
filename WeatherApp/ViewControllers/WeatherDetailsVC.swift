@@ -12,7 +12,7 @@ class WeatherDetailsVC: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var model:Weather? = Weather()
-    
+    var cityName:String!
     override func viewDidLoad() {
         super.viewDidLoad()
         //Set reuse identifier for the ForecastTableViewCell
@@ -24,7 +24,7 @@ class WeatherDetailsVC: UIViewController {
        
         self.tableView.delegate = self
         self.tableView.dataSource = self
-
+        NetworkingManager.cityName = cityName
         NetworkingManager.ApiCall(completionHandler: {
                         (model,error) in
             

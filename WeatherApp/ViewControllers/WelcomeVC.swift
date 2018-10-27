@@ -15,11 +15,12 @@ class WelcomeVC: UIViewController {
     @IBOutlet weak var tableView: UITableView!
   
     //var model:[WelcomeScreenStruct]?
-    var numberOFRows:Int = 4
-    var welcomeModel:[WelcomeModel]  = []
+    var detailModel:Weather?
+    var welcomeModelArray:[WelcomeModel]  = []
         override func viewDidLoad() {
 
         super.viewDidLoad()
+            Utilites.setLatAndLongitude()
         tableView.dataSource = self
         tableView.delegate = self
         
@@ -55,6 +56,7 @@ class WelcomeVC: UIViewController {
     
     @IBAction func addTapped(_ sender: Any) {
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "SearchCitiesVC") as! SearchCitiesVC
+        vc.delegate = self
         self.navigationController?.pushViewController(vc, animated: true)
     }
 
@@ -73,13 +75,16 @@ extension WelcomeVC:UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return numberOFRows // nil collescing
+        return welcomeModelArray.count // nil collescing
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell:WelcomeTableViewCell = tableView.dequeueReusableCell(withIdentifier: Strings.CellsNames.welcomeCell, for: indexPath) as! WelcomeTableViewCell
+        
        // let cellModel:WelcomeScreenStruct? = model?[indexPath.row]
-        cell.cityName.text = "NewYork"
+        cell.cityName.text = welcomeModelArray[indexPath.row].cityName
+        
+        cell.temperature.text = String(format:"%.0f",welcomeModelArray[indexPath.row].temperature ?? "")
         cell.delegate = self
         return cell
     }
@@ -87,14 +92,14 @@ extension WelcomeVC:UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // pushing whether detail vc.
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: "SearchCitiesVC") as! SearchCitiesVC
+        let vc = WeatherDetailsVC()
+        vc.cityName = self.welcomeModelArray[indexPath.row].cityName
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            //self.tableArray.remove(at: indexPath.row)
-            numberOFRows = numberOFRows - 1
+            self.welcomeModelArray.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
@@ -117,18 +122,17 @@ extension WelcomeVC:SearchCityProtocol{
         NetworkingManager.cityName = cityName
         
         NetworkingManager.ApiCall { (model, error) in
-            //
-            //flatmap
-            
             
             // preparing a model
             let welcomeModel:WelcomeModel = MakeModel().prepareModel(model: model, city: cityName)
             
-           
+           //append this model to the data model for the tableview.
+            self.welcomeModelArray.append(welcomeModel)
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+            
+            
         }
-        
-        
-        
-        
     }
 }
