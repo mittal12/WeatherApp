@@ -16,6 +16,7 @@ class WelcomeVC: UIViewController {
   
     //var model:[WelcomeScreenStruct]?
     var numberOFRows:Int = 4
+    var welcomeModel:[WelcomeModel]  = []
         override func viewDidLoad() {
 
         super.viewDidLoad()
@@ -100,20 +101,33 @@ extension WelcomeVC:UITableViewDataSource{
     
 }
 
-
 extension WelcomeVC:WelcomeTableCellDelegate{
     
     func deleteButtonTapped(cell: WelcomeTableViewCell) {
-        //the specific delete item will be removed from the tableView.
-//        6
-//        //procedure?
-////        i have to find the index of the row which i have to delete .
-//        i will delete the entity number 2 in the model
-//
-//        5
-//        
-//        i will refrsh the tableView.
-//
+        
+    }
+}
+
+extension WelcomeVC:SearchCityProtocol{
+    func citySelect(cityName:String){
+        //call the api and show loader to this screen . When the data come to the screen and store it in core data and make refresh tableView.
+        
+        //call the api
+        
+        NetworkingManager.cityName = cityName
+        
+        NetworkingManager.ApiCall { (model, error) in
+            //
+            //flatmap
+            
+            
+            // preparing a model
+            let welcomeModel:WelcomeModel = MakeModel().prepareModel(model: model, city: cityName)
+            
+           
+        }
+        
+        
         
         
     }

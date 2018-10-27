@@ -75,19 +75,21 @@ class DailyModel{
 
 class NetworkingManager{
 //trailing closure//
+   static var cityName:String = ""
+   static  var longitude:Double = 000
+   static var latitude:Double  = 000
     
     func abc(){
         print("hello")
     }
-    
     
 static func ApiCall(completionHandler: @escaping (_ model:Weather,_ error:SerializationError?) ->Void){  // making a closure/Fucntion as a paramter.
     
     //define the url.
     
     // the darsky url
-    
-    let darkSkyUrl:URL = URL(string: "https://api.darksky.net/forecast/9d95f80f662ac1dc39c7b33f9e2673e9/37.8267,-122.4233") as! URL
+    let latAndLong:(Double,Double) = Utilites.getLongAndLat(key:cityName)
+    let darkSkyUrl:URL = URL(string: "https://api.darksky.net/forecast/9d95f80f662ac1dc39c7b33f9e2673e9/\(latAndLong.0),\(latAndLong.1)") as! URL
     //trailing clousure
     let _ = URLSession.shared.dataTask(with: darkSkyUrl) { (data, response, error) in
         

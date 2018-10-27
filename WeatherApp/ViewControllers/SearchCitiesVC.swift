@@ -29,7 +29,6 @@ class SearchCitiesVC: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         searchBar.delegate = self
-       // modelArray.sort()
         
     }
     
@@ -88,6 +87,7 @@ extension SearchCitiesVC:UITableViewDelegate, UITableViewDataSource{
         return 44
     }
     
+    
 }
 
 extension SearchCitiesVC:UISearchBarDelegate{
@@ -132,6 +132,7 @@ extension SearchCitiesVC:UISearchBarDelegate{
     
     }
 }
+
 
 
 

@@ -13,5 +13,4 @@ import CoreLocation
 
 class CoreDataManager {
     
-    
 }
