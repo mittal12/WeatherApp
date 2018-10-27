@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -25,39 +26,26 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mv9-8X-dms">
-                        <rect key="frame" x="267" y="6" width="45" height="30"/>
-                        <state key="normal" title="Delete"/>
-                        <connections>
-                            <action selector="deleteButtonTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="tqL-5l-NcT"/>
-                        </connections>
-                    </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="82°" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6gA-pK-iib" userLabel="temperature">
-                        <rect key="frame" x="231" y="11" width="28" height="21"/>
+                        <rect key="frame" x="282" y="10" width="28" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="mv9-8X-dms" secondAttribute="trailing" constant="8" id="0Yy-Oo-kQq"/>
                     <constraint firstAttribute="bottom" secondItem="KYq-YD-7nj" secondAttribute="bottom" constant="11.5" id="5zh-7o-nq4"/>
-                    <constraint firstItem="6gA-pK-iib" firstAttribute="leading" secondItem="KYq-YD-7nj" secondAttribute="trailing" constant="135" id="D9t-td-8wl"/>
+                    <constraint firstItem="6gA-pK-iib" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="KYq-YD-7nj" secondAttribute="trailing" constant="5" id="D9t-td-8wl"/>
+                    <constraint firstItem="6gA-pK-iib" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="Ma3-dJ-AU6"/>
                     <constraint firstItem="KYq-YD-7nj" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="11" id="N5Y-1u-BPs"/>
-                    <constraint firstItem="mv9-8X-dms" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="6" id="New-81-zL9"/>
-                    <constraint firstItem="mv9-8X-dms" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="KYq-YD-7nj" secondAttribute="trailing" constant="50" id="Rxq-A0-F0I"/>
-                    <constraint firstItem="6gA-pK-iib" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="11" id="Z1p-sa-j2A"/>
                     <constraint firstItem="KYq-YD-7nj" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="hB2-G8-0XI"/>
+                    <constraint firstAttribute="trailing" secondItem="6gA-pK-iib" secondAttribute="trailing" constant="10" id="lpP-4f-Qtm"/>
                     <constraint firstAttribute="bottomMargin" secondItem="KYq-YD-7nj" secondAttribute="bottom" constant="1" id="mQY-uf-GOV"/>
                 </constraints>
             </tableViewCellContentView>
-            <constraints>
-                <constraint firstItem="njF-e1-oar" firstAttribute="bottom" secondItem="mv9-8X-dms" secondAttribute="bottom" constant="8" id="Jgm-Ex-m0K"/>
-            </constraints>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="cityName" destination="KYq-YD-7nj" id="03j-Eb-OZR"/>
-                <outlet property="delete" destination="mv9-8X-dms" id="lrA-lL-Qel"/>
                 <outlet property="temperature" destination="6gA-pK-iib" id="fFf-MY-tg1"/>
             </connections>
         </tableViewCell>

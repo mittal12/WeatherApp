@@ -16,9 +16,7 @@ class WelcomeTableViewCell: UITableViewCell {
 
     @IBOutlet weak var cityName: UILabel!   
     @IBOutlet weak var temperature: UILabel!
-    @IBOutlet weak var delete: UIButton!
     
-
     
     var delegate:WelcomeTableCellDelegate?
     
@@ -27,9 +25,6 @@ class WelcomeTableViewCell: UITableViewCell {
         // Initialization code
     }
     
-    @IBAction func deleteButtonTapped(_ sender: Any) {
-        self.delegate?.deleteButtonTapped(cell: self)
-    }
-    
+  
     
 }

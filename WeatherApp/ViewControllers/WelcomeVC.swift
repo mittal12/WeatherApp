@@ -12,12 +12,12 @@ class WelcomeVC: UIViewController {
 
     @IBOutlet weak var Add: UIBarButtonItem!
     @IBOutlet weak var Refresh: UIBarButtonItem!
-    @IBOutlet weak var Edit: UIBarButtonItem!
     @IBOutlet weak var tableView: UITableView!
   
     //var model:[WelcomeScreenStruct]?
-    
-    override func viewDidLoad() {
+    var numberOFRows:Int = 4
+        override func viewDidLoad() {
+
         super.viewDidLoad()
         tableView.dataSource = self
         tableView.delegate = self
@@ -26,7 +26,6 @@ class WelcomeVC: UIViewController {
         let nib = UINib(nibName: Strings.CellsNames.welcomeCell, bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: Strings.CellsNames.welcomeCell)
         //hard Code the model.
-        
        // model = [WelcomeScreenStruct(cityName: "NEW YORK"), WelcomeScreenStruct(cityName: "DenMark"),WelcomeScreenStruct(cityName: "California"), WelcomeScreenStruct(cityName: "London")]
        
 //        NetworkingManager.ApiCall{model,error in
@@ -54,11 +53,10 @@ class WelcomeVC: UIViewController {
     }
     
     @IBAction func addTapped(_ sender: Any) {
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "SearchCitiesVC") as! SearchCitiesVC
+        self.navigationController?.pushViewController(vc, animated: true)
     }
-    
-    @IBAction func editTapped(_ sender: Any) {
-        
-    }
+
 }
 
 // only contain tableViewdelegate methods
@@ -74,7 +72,7 @@ extension WelcomeVC:UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5 // nil collescing
+        return numberOFRows // nil collescing
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -92,10 +90,15 @@ extension WelcomeVC:UITableViewDataSource{
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            //self.tableArray.remove(at: indexPath.row)
+            numberOFRows = numberOFRows - 1
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
     
 }
-    
-
 
 
 extension WelcomeVC:WelcomeTableCellDelegate{
@@ -111,6 +114,7 @@ extension WelcomeVC:WelcomeTableCellDelegate{
 //        
 //        i will refrsh the tableView.
 //
-
+        
+        
     }
 }
