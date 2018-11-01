@@ -8,6 +8,7 @@
 
 import Foundation
 import CoreData
+import UIKit
 
 class CoreDataStack{
     
@@ -63,28 +64,66 @@ extension CoreDataStack{
     
     
     //adding record to the coredata
-    func createNewManagedObject<T: NSManagedObject>(into managedObjectContext: NSManagedObjectContext) -> T? {
-        return NSEntityDescription.insertNewObject(forEntityName: NSStringFromClass(T.self), into: managedObjectContext) as? T
+    func createNewManagedObject() ->NSManagedObject{
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        
+        let context = appDelegate.persistentContainer.viewContext
+        let entity = NSEntityDescription.entity(forEntityName: "City", in: context)
+        return NSManagedObject(entity: entity!, insertInto: context)
+        
     }
     
     
     //fetching data. //how many records in the coredata (based on filteration)
     
-    func fetchObject<T: NSManagedObject>(predicateString predicate: String?, inManagedObjectContext context: NSManagedObjectContext,argumentList:[Any]? = nil) -> [T]? {
+    func fetchObjects() -> [City]? {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let managedContext =
+            appDelegate.persistentContainer.viewContext
+        var modelArray:[City]?
+        //2
+        let fetchRequest =
+            NSFetchRequest<NSManagedObject>(entityName: "City")
         
-        let fetch = NSFetchRequest<T>(entityName: NSStringFromClass(T.self))
-        if let predicate = predicate {
-            fetch.predicate = NSPredicate(format: predicate, argumentArray: argumentList)
-        }
-        var result: [T]?
         do {
-            result = try context.fetch(fetch)
-        } catch {
-            fatalError("Failed to fetch employees: \(error)")
+            modelArray = try managedContext.fetch(fetchRequest) as? [City]
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
         }
-        return result
+        
+        
+        return modelArray
     }
 
+    func deleteEntry(name:String){
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let managedContext =
+            appDelegate.persistentContainer.viewContext
+        let fetchRequest =
+            NSFetchRequest<NSManagedObject>(entityName: "City")
+        
+        if let result = try? managedContext.fetch(fetchRequest) {
+            for object in result {
+                let model = object as! City
+                if model.cityName == name{
+                    managedContext.delete(model)
+                    break
+                }
+            }
+        }
+
+        
+        // save to the context
+        do {
+            try managedContext.save()
+        } catch {
+            
+        }
+        
+        
+    }
+    
+    
 }
 
 

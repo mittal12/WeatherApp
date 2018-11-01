@@ -11,6 +11,7 @@ import Foundation
 enum SerializationError: Error {
     case missing(String)
     case invalid(String, Any)
+    case SomethingWentWrong(String)
     
 }
 
@@ -83,7 +84,7 @@ class NetworkingManager{
         print("hello")
     }
     
-static func ApiCall(completionHandler: @escaping (_ model:Weather,_ error:SerializationError?) ->Void){  // making a closure/Fucntion as a paramter.
+static func ApiCall(completionHandler: @escaping (_ model:Weather?,_ error:SerializationError?) ->Void){  // making a closure/Fucntion as a paramter.
     
     //define the url.
     
@@ -99,13 +100,19 @@ static func ApiCall(completionHandler: @escaping (_ model:Weather,_ error:Serial
         //if error occurs, then terminate the flow process.
         
         if let _ = error {
+            // just put errorpopop
+            
+            completionHandler(nil,SerializationError.SomethingWentWrong("SomeThing Went Wrong"))
             return
+            
         }
         
     // check for the data also.
         
         
         guard let content = data else{
+            // put Error popop
+            completionHandler(nil,SerializationError.SomethingWentWrong("SomeThing Went Wrong"))
             return
         }
         

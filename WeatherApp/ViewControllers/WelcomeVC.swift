@@ -11,47 +11,61 @@ import UIKit
 class WelcomeVC: UIViewController {
 
     @IBOutlet weak var Add: UIBarButtonItem!
-    @IBOutlet weak var Refresh: UIBarButtonItem!
     @IBOutlet weak var tableView: UITableView!
-  
     //var model:[WelcomeScreenStruct]?
     var detailModel:Weather?
     var welcomeModelArray:[WelcomeModel]  = []
+    var cityObjects :[City] = []
+    
+    
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
+    
+    
         override func viewDidLoad() {
 
         super.viewDidLoad()
-            Utilites.setLatAndLongitude()
-        tableView.dataSource = self
-        tableView.delegate = self
+       // setEnableActivityIndicator(isEnable: true)
+        fetchingFromCoreData()
+       // setEnableActivityIndicator(isEnable: false)
+        Utilites.setLatAndLongitude()
+        activityIndicator.tintColor = .orange
         
-        //Set reuse identifier for the WelcomeTableViewCell
         let nib = UINib(nibName: Strings.CellsNames.welcomeCell, bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: Strings.CellsNames.welcomeCell)
-        //hard Code the model.
-       // model = [WelcomeScreenStruct(cityName: "NEW YORK"), WelcomeScreenStruct(cityName: "DenMark"),WelcomeScreenStruct(cityName: "California"), WelcomeScreenStruct(cityName: "London")]
-       
-//        NetworkingManager.ApiCall{model,error in
-//
-//        }
-        
-//        NetworkingManager.ApiCall(completionHandler: {
-//            (model,error) in
-//        })
-//
-//
-//        NetworkingManager.ApiCall(completionHandler: functionName)
-//
+        tableView.dataSource = self
+        tableView.delegate = self
     }
+    
+    func fetchingFromCoreData(){
+        if let modelArray:[City] = CoreDataStack.shared.fetchObjects(){
+            cityObjects = modelArray
+        }   else{
+            print("elements")
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
+    
     
     func functionName(_ model:Weather,_ error:SerializationError?){
         
     }
     
-    func refresh() {
-        
-    }
     
-    @IBAction func refreshTapped(_ sender: Any) {
+    func setEnableActivityIndicator(isEnable:Bool){
+        if isEnable {
+        activityIndicator.isHidden = false
+        activityIndicator.startAnimating()
+        self.view.isUserInteractionEnabled = false
+        }
+        else{
+            activityIndicator.isHidden = true
+            activityIndicator.stopAnimating()
+            self.view.isUserInteractionEnabled = true
+        }
     }
     
     @IBAction func addTapped(_ sender: Any) {
@@ -75,17 +89,21 @@ extension WelcomeVC:UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return welcomeModelArray.count // nil collescing
+       // return welcomeModelArray.count // nil collescing
+        return cityObjects.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell:WelcomeTableViewCell = tableView.dequeueReusableCell(withIdentifier: Strings.CellsNames.welcomeCell, for: indexPath) as! WelcomeTableViewCell
         
        // let cellModel:WelcomeScreenStruct? = model?[indexPath.row]
-        cell.cityName.text = welcomeModelArray[indexPath.row].cityName
+//        cell.cityName.text = welcomeModelArray[indexPath.row].cityName
+//
+//        cell.temperature.text = String(format:"%.0f",welcomeModelArray[indexPath.row].temperature ?? "")
         
-        cell.temperature.text = String(format:"%.0f",welcomeModelArray[indexPath.row].temperature ?? "")
-        cell.delegate = self
+        let model = cityObjects[indexPath.row]
+        cell.cityName.text = model.cityName
+        cell.temperature.text = String(format:"%.0f",model.temperature ?? "")
         return cell
     }
     
@@ -93,25 +111,20 @@ extension WelcomeVC:UITableViewDataSource{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // pushing whether detail vc.
         let vc = WeatherDetailsVC()
-        vc.cityName = self.welcomeModelArray[indexPath.row].cityName
+        vc.cityName = cityObjects[indexPath.row].cityName
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            self.welcomeModelArray.remove(at: indexPath.row)
+            CoreDataStack.shared.deleteEntry(name: cityObjects[indexPath.row].cityName ?? "")
+            self.cityObjects.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
-        }
+          }
     }
     
 }
 
-extension WelcomeVC:WelcomeTableCellDelegate{
-    
-    func deleteButtonTapped(cell: WelcomeTableViewCell) {
-        
-    }
-}
 
 extension WelcomeVC:SearchCityProtocol{
     func citySelect(cityName:String){
@@ -121,18 +134,46 @@ extension WelcomeVC:SearchCityProtocol{
         
         NetworkingManager.cityName = cityName
         
+        setEnableActivityIndicator(isEnable: true)
+        //make a cpi call
         NetworkingManager.ApiCall { (model, error) in
             
             // preparing a model
-            let welcomeModel:WelcomeModel = MakeModel().prepareModel(model: model, city: cityName)
-            
-           //append this model to the data model for the tableview.
-            self.welcomeModelArray.append(welcomeModel)
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
+            DispatchQueue.main.async{
+                self.setEnableActivityIndicator(isEnable: false)
             }
             
             
+            if let er = error{
+                self.showAlert()
+                return
+            }
+            
+           //append this model to the data model for the tableview.
+            
+            if error  == nil{
+                DispatchQueue.main.async {
+                let city:City =  CoreDataStack.shared.createNewManagedObject() as! City
+                city.cityName = cityName
+                city.temperature = (model?.temperature)!
+                CoreDataStack.shared.saveContext()
+                self.cityObjects.append(city)
+                self.tableView.reloadData()
+            }
         }
+        }
+    }
+}
+
+
+extension WelcomeVC{
+    func showAlert(){
+        let alert = UIAlertController(title: "Error", message: "SomeThing went wrong", preferredStyle: .alert)
+        
+        // add an action (button)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        
+        // show the alert
+        self.present(alert, animated: true, completion: nil)
     }
 }

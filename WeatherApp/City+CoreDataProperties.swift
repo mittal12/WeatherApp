@@ -2,7 +2,7 @@
 //  City+CoreDataProperties.swift
 //  WeatherApp
 //
-//  Created by Ashish Mittal on 20/10/18.
+//  Created by Ashish Mittal on 31/10/18.
 //  Copyright © 2018 Edward L Richardson. All rights reserved.
 //
 //
@@ -18,7 +18,8 @@ extension City {
     }
 
     @NSManaged public var cityName: String?
-    @NSManaged public var longitude: NSObject?
-    @NSManaged public var latitude: NSObject?
+    @NSManaged public var latitude: Double
+    @NSManaged public var longitude: Double
+    @NSManaged public var temperature: Double
 
 }

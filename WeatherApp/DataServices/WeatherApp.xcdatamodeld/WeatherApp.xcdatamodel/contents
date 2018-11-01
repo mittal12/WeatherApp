@@ -4,8 +4,9 @@
         <attribute name="cityName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="temperature" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
     </entity>
     <elements>
-        <element name="City" positionX="-63" positionY="-18" width="128" height="90"/>
+        <element name="City" positionX="-63" positionY="-18" width="128" height="105"/>
     </elements>
 </model>
