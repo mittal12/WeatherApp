@@ -25,15 +25,14 @@ class WelcomeVC: UIViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        // setEnableActivityIndicator(isEnable: true)
+        setEnableActivityIndicator(isEnable: true)
         fetchingFromCoreData()
-        // setEnableActivityIndicator(isEnable: false)
+        setEnableActivityIndicator(isEnable: false)
         Utilites.setLatAndLongitude()
         activityIndicator.tintColor = .orange
         
         let nib = UINib(nibName: Strings.CellsNames.welcomeCell, bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: Strings.CellsNames.welcomeCell)
-        print(cityObjects.count)
         tableView.dataSource = self
         tableView.delegate = self
     }
