@@ -22,8 +22,8 @@ class ForecastTableViewCell: UITableViewCell {
     
     func setModel(high:Double,low:Double,imageName:ESummary,day:String){
         self.Day.text = day
-        HighTemp.text = String(format:"%.0f ℉",high)
-        LowTemp.text = String(format:"%.0f ℉",low)
+        HighTemp.text = String(format:"%.0f ℃",high)
+        LowTemp.text = String(format:"%.0f ℃",low)
         WeatherIcon.image = UIImage(named: imageName.rawValue)
     }
 

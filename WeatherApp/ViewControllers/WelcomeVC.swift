@@ -33,6 +33,7 @@ class WelcomeVC: UIViewController {
         
         let nib = UINib(nibName: Strings.CellsNames.welcomeCell, bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: Strings.CellsNames.welcomeCell)
+        print(cityObjects.count)
         tableView.dataSource = self
         tableView.delegate = self
     }
@@ -49,10 +50,6 @@ class WelcomeVC: UIViewController {
         super.viewWillAppear(animated)
     }
     
-    
-    func functionName(_ model:Weather,_ error:SerializationError?){
-        
-    }
     
     
     func setEnableActivityIndicator(isEnable:Bool){
@@ -103,7 +100,7 @@ extension WelcomeVC:UITableViewDataSource{
         
         let model = cityObjects[indexPath.row]
         cell.cityName.text = model.cityName
-        cell.temperature.text = String(format:"%.0f ℉",model.temperature ?? "")
+        cell.temperature.text = String(format:"%.0f ℃",model.temperature ?? "")
         return cell
     }
     

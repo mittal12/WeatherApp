@@ -26,7 +26,7 @@ class WeatherDetailHeaderView: UITableViewCell {
     //define IBOutlets for the vars listed in line 25
         self.weatherIcon.image = UIImage(named: weatherIcon.rawValue)
         self.cityName.text = cityName
-        self.temperature.text = String(format:"%.0f ℉",temperature)
+        self.temperature.text = String(format:"%.0f ℃",temperature)
         self.summary.text = summary
         self.humidity.text = String(humidity)
         self.pressure.text = String(pressure)

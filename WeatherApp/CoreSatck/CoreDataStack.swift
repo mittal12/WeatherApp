@@ -41,6 +41,9 @@ class CoreDataStack{
     }()
     
     func saveContext() {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let managedContext =
+            appDelegate.persistentContainer.viewContext
         let context = persistantContainer.viewContext
         if context.hasChanges {
             do {
