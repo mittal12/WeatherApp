@@ -144,8 +144,8 @@ extension WelcomeVC:SearchCityProtocol{
             }
             
             
-            if let er = error{
-                self.showAlert()
+            if let _ = error{
+                self.showAlert(message:"SomeThing went wrong")
                 return
             }
             
@@ -153,12 +153,22 @@ extension WelcomeVC:SearchCityProtocol{
             
             if error  == nil{
                 DispatchQueue.main.async {
+                    
+                    
+                let obj = self.cityObjects.filter({ (cityModel) -> Bool in
+                    return cityModel.cityName == cityName
+                })
+                if obj.count == 0{
                 let city:City =  CoreDataStack.shared.createNewManagedObject() as! City
                 city.cityName = cityName
                 city.temperature = (model?.temperature)!
                 CoreDataStack.shared.saveContext()
                 self.cityObjects.append(city)
                 self.tableView.reloadData()
+                }
+                else{
+                    self.showAlert(message:"City has already been added")
+                    }
             }
         }
         }
@@ -167,8 +177,8 @@ extension WelcomeVC:SearchCityProtocol{
 
 
 extension WelcomeVC{
-    func showAlert(){
-        let alert = UIAlertController(title: "Error", message: "SomeThing went wrong", preferredStyle: .alert)
+    func showAlert(message:String){
+        let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
         
         // add an action (button)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
