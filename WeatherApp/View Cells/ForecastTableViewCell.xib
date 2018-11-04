@@ -23,7 +23,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Monday" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j04-0c-ybu">
-                                <rect key="frame" x="5" y="12" width="69" height="21"/>
+                                <rect key="frame" x="5" y="12" width="61.5" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -74,7 +74,7 @@
                             <constraint firstItem="Twl-S5-I08" firstAttribute="top" secondItem="C78-4U-yhQ" secondAttribute="top" constant="3" id="gDG-lo-q7a"/>
                             <constraint firstAttribute="trailing" secondItem="Chm-ms-fXJ" secondAttribute="trailing" constant="20" id="hh4-tC-kDC"/>
                             <constraint firstItem="Twl-S5-I08" firstAttribute="leading" secondItem="oJA-kq-TgL" secondAttribute="trailing" constant="10" id="nYs-Yb-Wim"/>
-                            <constraint firstItem="bCl-sr-0oT" firstAttribute="leading" secondItem="j04-0c-ybu" secondAttribute="trailing" constant="68" id="r2A-Rr-xMM"/>
+                            <constraint firstItem="bCl-sr-0oT" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="j04-0c-ybu" secondAttribute="trailing" constant="5" id="r2A-Rr-xMM"/>
                             <constraint firstItem="j04-0c-ybu" firstAttribute="leading" secondItem="C78-4U-yhQ" secondAttribute="leading" constant="5" id="u0J-ag-omE"/>
                         </constraints>
                     </view>

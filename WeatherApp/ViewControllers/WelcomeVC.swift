@@ -9,7 +9,7 @@
 import UIKit
 
 class WelcomeVC: UIViewController {
-
+    
     @IBOutlet weak var Add: UIBarButtonItem!
     @IBOutlet weak var tableView: UITableView!
     //var model:[WelcomeScreenStruct]?
@@ -22,12 +22,12 @@ class WelcomeVC: UIViewController {
     
     
     
-        override func viewDidLoad() {
-
+    override func viewDidLoad() {
+        
         super.viewDidLoad()
-       // setEnableActivityIndicator(isEnable: true)
+        // setEnableActivityIndicator(isEnable: true)
         fetchingFromCoreData()
-       // setEnableActivityIndicator(isEnable: false)
+        // setEnableActivityIndicator(isEnable: false)
         Utilites.setLatAndLongitude()
         activityIndicator.tintColor = .orange
         
@@ -57,9 +57,9 @@ class WelcomeVC: UIViewController {
     
     func setEnableActivityIndicator(isEnable:Bool){
         if isEnable {
-        activityIndicator.isHidden = false
-        activityIndicator.startAnimating()
-        self.view.isUserInteractionEnabled = false
+            activityIndicator.isHidden = false
+            activityIndicator.startAnimating()
+            self.view.isUserInteractionEnabled = false
         }
         else{
             activityIndicator.isHidden = true
@@ -73,7 +73,7 @@ class WelcomeVC: UIViewController {
         vc.delegate = self
         self.navigationController?.pushViewController(vc, animated: true)
     }
-
+    
 }
 
 // only contain tableViewdelegate methods
@@ -89,21 +89,21 @@ extension WelcomeVC:UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-       // return welcomeModelArray.count // nil collescing
+        // return welcomeModelArray.count // nil collescing
         return cityObjects.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell:WelcomeTableViewCell = tableView.dequeueReusableCell(withIdentifier: Strings.CellsNames.welcomeCell, for: indexPath) as! WelcomeTableViewCell
         
-       // let cellModel:WelcomeScreenStruct? = model?[indexPath.row]
-//        cell.cityName.text = welcomeModelArray[indexPath.row].cityName
-//
-//        cell.temperature.text = String(format:"%.0f",welcomeModelArray[indexPath.row].temperature ?? "")
+        // let cellModel:WelcomeScreenStruct? = model?[indexPath.row]
+        //        cell.cityName.text = welcomeModelArray[indexPath.row].cityName
+        //
+        //        cell.temperature.text = String(format:"%.0f",welcomeModelArray[indexPath.row].temperature ?? "")
         
         let model = cityObjects[indexPath.row]
         cell.cityName.text = model.cityName
-        cell.temperature.text = String(format:"%.0f",model.temperature ?? "")
+        cell.temperature.text = String(format:"%.0f ℉",model.temperature ?? "")
         return cell
     }
     
@@ -120,7 +120,7 @@ extension WelcomeVC:UITableViewDataSource{
             CoreDataStack.shared.deleteEntry(name: cityObjects[indexPath.row].cityName ?? "")
             self.cityObjects.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
-          }
+        }
     }
     
 }
@@ -149,28 +149,31 @@ extension WelcomeVC:SearchCityProtocol{
                 return
             }
             
-           //append this model to the data model for the tableview.
+            //append this model to the data model for the tableview.
             
             if error  == nil{
                 DispatchQueue.main.async {
                     
+                    //filteration
+                    // it applies on collections(array and strings)
                     
-                let obj = self.cityObjects.filter({ (cityModel) -> Bool in
-                    return cityModel.cityName == cityName
-                })
-                if obj.count == 0{
-                let city:City =  CoreDataStack.shared.createNewManagedObject() as! City
-                city.cityName = cityName
-                city.temperature = (model?.temperature)!
-                CoreDataStack.shared.saveContext()
-                self.cityObjects.append(city)
-                self.tableView.reloadData()
-                }
-                else{
-                    self.showAlert(message:"City has already been added")
+                    let filterArray = self.cityObjects.filter({ (cityModel) -> Bool in
+                        return cityModel.cityName == cityName
+                    })
+                    
+                    if filterArray.count == 0{
+                        let city:City =  CoreDataStack.shared.createNewManagedObject() as! City
+                        city.cityName = cityName
+                        city.temperature = (model?.temperature)!
+                        CoreDataStack.shared.saveContext()
+                        self.cityObjects.append(city)
+                        self.tableView.reloadData()
                     }
+                    else{
+                        self.showAlert(message:"City has already been added")
+                    }
+                }
             }
-        }
         }
     }
 }
